@@ -55,7 +55,7 @@ sudo apt-get install libopencv-dev
 
 Step 4:
 Import or create python code to run camera tests
-For native Raspberry Pi cameras: 
+For native Raspberry Pi cameras: https://github.com/tmp52468/Haidekker-Lab/blob/master/run-camera-test.py
 *Can be placed in any directory
 import RPi.GPIO as GPIO           #Import the GPIO library
 import time                       #Import the time library
