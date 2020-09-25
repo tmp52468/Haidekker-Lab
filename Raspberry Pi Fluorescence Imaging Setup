@@ -1,0 +1,105 @@
+Materials Needed:
+Raspberry Pi 3/4
+RPi Power Supply
+Micro-HDMI to HDMI Cable
+Ethernet Cable (optional)
+Monitor/Keyboard/Mouse
+(2) 2-Wire Connectors
+Raspberry Pi Compatible Camera
+
+Step 1:
+Perform the initial Raspberry Pi Setup
+The following link has a guide:
+https://magpi.raspberrypi.org/articles/set-up-raspberry-pi-4
+After initial boot, ensure the software is up-to-date:
+-Open the terminal
+-Enter the following commands (requires internet connection)
+sudo apt update
+sudo apt full-upgrade
+
+Step 2:
+Configure the Raspberry Pi for camera use
+-Open the desktop menu in the top left
+-Go to Preferences > Raspberry Pi configuration
+-Open the Interfaces tab
+-Enable the Camera option and click OK
+-Reboot the Raspberry Pi (Or shutdown and connect the camera if you haven't already)
+
+Step 3:
+Install the necessary python libraries for the camera
+For native Raspberry Pi cameras: https://picamera.readthedocs.io/en/release-1.0/install2.html
+-Open the terminal
+-Test the camera functionality (optional)
+raspistill -o file_name.jpg (captures an image)
+raspivid -o file_name.jpg (captures a video)
+-Enter the following commands (requires internet connection)
+sudo apt-get install python-pip
+sudo pip install picamera
+
+For ArduCam third-party cameras: https://www.arducam.com/docs/cameras-for-raspberry-pi/mipi-camera-modules/camera-userland-driver-sdk-and-examples/
+-Open the terminal
+-Enter the following commands (requires internet connection)
+sudo apt-get update && sudo apt-get install libzbar-dev libopencv-dev
+sudo apt-get install python-opencv
+git clone https://github.com//ArduCAM/MIPI_Camera.git
+cd MIPI_Camera/RPI/
+make install
+chmod +x enable_i2c_vc.sh
+./enable_i2c_vc.sh
+-Click Y/y to reboot now (only if prompted)
+-Enter the following commands
+cd MIPI_Camera/RPI/
+make clean && make
+-If a fatal error for opencv occurs, enter the following command and re-enter the two above
+sudo apt-get install libopencv-dev
+
+Step 4:
+Import or create python code to run camera tests
+For native Raspberry Pi cameras: 
+*Can be placed in any directory
+import RPi.GPIO as GPIO           #Import the GPIO library
+import time                       #Import the time library
+from picamera import PiCamera     #Import the camera library
+
+GPIO.setmode(GPIO.BOARD)          #Set pin name mode
+GPIO.setup(32, GPIO.OUT)          
+pwmAct = GPIO.PWM(32, 1000)       #Set pin 32 to pwm for actinic led
+GPIO.setup(33, GPIO.OUT)
+pwmEx = GPIO.PWM(33, 1000)        #Set pin 33 to pwm for excitation led
+
+camera = PiCamera()               #Set up the raspberry pi camera
+
+#Main Program     
+
+dc = 50                           #Set the duty cycle of pwm for pins
+pwmAct.start(dc)                  #Start actinic led at duty cycle
+time.sleep(10)                    #Wait 10 seconds for plant to react
+
+camera.capture('Actinic.jpg')     #Capture actinic image
+
+pwmEx.start(dc)                   #Start excitation led at duty cycle
+
+camera.capture('Excitation.jpg')  #Capture excitation image
+
+pwmEx.stop()                      #Stop excitation led
+pwmAct.stop()                     #Stop actinic led
+GPIO.cleanup()                    #Reset pins
+
+print("DONE")
+
+For ArduCam third-party cameras:
+*Must be placed in MIPI_Camera/RPI/python/ directory
+
+
+
+
+Step 5:
+Raspberry Pi 3/4 pin schematic: https://pinout.xyz/pinout/pwm
+Connect pin 32 and ground to the actinic led
+Connect pin 33 and ground to the excitation led
+
+Step 6:
+Run camera tests
+-Navigate to the folder containing the python code
+-Enter the following command
+python camera_test_script.py
