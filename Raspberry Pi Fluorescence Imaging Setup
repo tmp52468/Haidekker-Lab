@@ -16,6 +16,7 @@ After initial boot, ensure the software is up-to-date:
 -Enter the following commands (requires internet connection)
 sudo apt update
 sudo apt full-upgrade
+sudo apt-get install python-pip
 
 Step 2:
 Configure the Raspberry Pi for camera use
@@ -23,7 +24,7 @@ Configure the Raspberry Pi for camera use
 -Go to Preferences > Raspberry Pi configuration
 -Open the Interfaces tab
 -Enable the Camera option and click OK
--Reboot the Raspberry Pi (Or shutdown and connect the camera if you haven't already)
+-Reboot the Raspberry Pi if prompted (Or shutdown and connect the camera if you haven't already)
 
 Step 3:
 Install the necessary python libraries for the camera
@@ -32,8 +33,7 @@ For native Raspberry Pi cameras: https://picamera.readthedocs.io/en/release-1.0/
 -Test the camera functionality (optional)
 raspistill -o file_name.jpg (captures an image)
 raspivid -o file_name.jpg (captures a video)
--Enter the following commands (requires internet connection)
-sudo apt-get install python-pip
+-Enter the following command (requires internet connection)
 sudo pip install picamera
 
 For ArduCam third-party cameras: https://www.arducam.com/docs/cameras-for-raspberry-pi/mipi-camera-modules/camera-userland-driver-sdk-and-examples/
@@ -55,42 +55,6 @@ sudo apt-get install libopencv-dev
 
 Step 4:
 Import or create python code to run camera tests
-For native Raspberry Pi cameras: https://github.com/tmp52468/Haidekker-Lab/blob/master/run-camera-test.py
-*Can be placed in any directory
-import RPi.GPIO as GPIO           #Import the GPIO library
-import time                       #Import the time library
-from picamera import PiCamera     #Import the camera library
-
-GPIO.setmode(GPIO.BOARD)          #Set pin name mode
-GPIO.setup(32, GPIO.OUT)          
-pwmAct = GPIO.PWM(32, 1000)       #Set pin 32 to pwm for actinic led
-GPIO.setup(33, GPIO.OUT)
-pwmEx = GPIO.PWM(33, 1000)        #Set pin 33 to pwm for excitation led
-
-camera = PiCamera()               #Set up the raspberry pi camera
-
-#Main Program     
-
-dc = 50                           #Set the duty cycle of pwm for pins
-pwmAct.start(dc)                  #Start actinic led at duty cycle
-time.sleep(10)                    #Wait 10 seconds for plant to react
-
-camera.capture('Actinic.jpg')     #Capture actinic image
-
-pwmEx.start(dc)                   #Start excitation led at duty cycle
-
-camera.capture('Excitation.jpg')  #Capture excitation image
-
-pwmEx.stop()                      #Stop excitation led
-pwmAct.stop()                     #Stop actinic led
-GPIO.cleanup()                    #Reset pins
-
-print("DONE")
-
-For ArduCam third-party cameras:
-*Must be placed in MIPI_Camera/RPI/python/ directory
-
-
 
 
 Step 5:
@@ -102,4 +66,4 @@ Step 6:
 Run camera tests
 -Navigate to the folder containing the python code
 -Enter the following command
-python camera_test_script.py
+python 
