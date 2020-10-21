@@ -55,15 +55,23 @@ sudo apt-get install libopencv-dev
 
 Step 4:
 Import or create python code to run camera tests
-
+-Enter the following commands
+cd
+git clone https://github.com/tmp52468/Haidekker-Lab.git
+cp Haidekker-Lab/run-arducam-test.py MIPI_Camera/RPI/python/
 
 Step 5:
 Raspberry Pi 3/4 pin schematic: https://pinout.xyz/pinout/pwm
-Connect pin 32 and ground to the actinic led
 Connect pin 33 and ground to the excitation led
 
 Step 6:
 Run camera tests
--Navigate to the folder containing the python code
--Enter the following command
-python 
+To use native Raspberry Pi cameras:
+-Enter the following commands
+cd /home/pi/Haidekker-Lab
+python run-rpi-test.py
+
+To use ArduCam third-party cameras:
+-Enter the following commands
+cd /home/pi/MIPI_Camera/RPI/python
+python run-arducam-test.py
