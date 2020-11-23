@@ -5,12 +5,12 @@ Micro-HDMI to HDMI Cable
 Ethernet Cable (optional)
 Monitor/Keyboard/Mouse
 (2) 2-Wire Connectors
-Raspberry Pi Compatible Camera
+Monochrome IR-sensitive Camera
 
 Step 1:
-Perform the initial Raspberry Pi Setup
+Perform the initial Raspberry Pi Setup (including internet connection)
 The following link has a guide:
-https://magpi.raspberrypi.org/articles/set-up-raspberry-pi-4
+https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up
 After initial boot, ensure the software is up-to-date:
 -Open the terminal
 -Enter the following commands (requires internet connection)
@@ -56,22 +56,43 @@ sudo apt-get install libopencv-dev
 Step 4:
 Import or create python code to run camera tests
 -Enter the following commands
-cd
-git clone https://github.com/tmp52468/Haidekker-Lab.git
-cp Haidekker-Lab/run-arducam-test.py MIPI_Camera/RPI/python/
+For native RPi cameras:
+curl -l https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/run-rpi-test.py > /home/pi/cf_capture.py
+
+For third-party ArduCam cameras:
+curl -l https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/run-arducam-test.py > /home/pi/MIPI_Camera/RPI/python/cf_capture.py
 
 Step 5:
 Raspberry Pi 3/4 pin schematic: https://pinout.xyz/pinout/pwm
-Connect pin 33 and ground to the excitation led
+Connect pin 33 and ground to the excitation led relay
 
 Step 6:
 Run camera tests
 To use native Raspberry Pi cameras:
 -Enter the following commands
-cd /home/pi/Haidekker-Lab
-python run-rpi-test.py
+python /home/pi/cf_capture.py
 
 To use ArduCam third-party cameras:
 -Enter the following commands
-cd /home/pi/MIPI_Camera/RPI/python
-python run-arducam-test.py
+python /home/pi/MIPI_Camera/RPI/python/cf_capture.py
+
+Step 7:
+Connect to OneDrive cloud service
+The following link has a guide:
+https://jarrodstech.net/how-to-raspberry-pi-onedrive-sync/
+
+Step 8:
+Set Up Samba/CIFS system for network
+
+
+Step 9:
+Install ImageJ2/Fiji
+
+
+Step 10:
+Set up automated image capture and processing
+
+
+
+
+
