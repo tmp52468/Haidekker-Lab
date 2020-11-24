@@ -81,6 +81,9 @@ Step 7:
 Connect to OneDrive cloud service
 The following link has a guide:
 https://jarrodstech.net/how-to-raspberry-pi-onedrive-sync/
+Once connected, enter the following commands:
+cd
+mkdir rclone
 
 Step 8:
 Set Up Samba/CIFS system for network
@@ -92,8 +95,17 @@ Install ImageJ2/Fiji
 
 Step 10:
 Set up automated image capture and processing
+Enter the following command:
+curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/auto_image_rclone.sh > home/pi/auto_cf_imaging.sh
 
+Modify the shell script to fit your cloud layout:
+nano home/pi/auto_cf_imaging.sh
 
+Modify the crontab file to enable automatic file execution:
+crontab -e
 
+Add scheduled task to the bottom of crontab:
+0 0 * * * /home/pi/auto_cf_imaging.sh
 
-
+For on reboot:
+@reboot /home/pi/auto_cf_imaging.sh
