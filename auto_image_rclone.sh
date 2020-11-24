@@ -7,7 +7,7 @@ DATE=$(date +%F@%H:%M:%S)
 rclone sync -v onedrive:PathToOneDriveFolder /home/pi/rclone/
 
 # run the imaging script
-python /home/pi/MIPI_Camera/RPI/python/cf_imaging.py
+python /home/pi/MIPI_Camera/RPI/python/cf_capture.py
 
 # process the image (skipped for now)
 
