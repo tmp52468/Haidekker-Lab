@@ -52,6 +52,7 @@ cd MIPI_Camera/RPI/
 make clean && make
 -If a fatal error for opencv occurs, enter the following command and re-enter the two above
 sudo apt-get install libopencv-dev
+sudo pip install 4vl2
 
 Step 4:
 Import or create python code to run camera tests
