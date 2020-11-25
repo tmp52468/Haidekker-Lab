@@ -71,7 +71,7 @@ if __name__ == "__main__":
 
         #print("Current resolution is {}".format(fmt))
         frame = camera.capture(encoding = 'jpeg')
-        frame.as_array.tofile("excitation.jpg")
+        frame.as_array.tofile("cf_image.jpg")
 
 	time.sleep(1)
 
