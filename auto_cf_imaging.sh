@@ -16,8 +16,8 @@ rclone sync -v $ONEDRIVE $RCLONE/
 python /home/pi/MIPI_Camera/RPI/python/cf_capture.py
 
 # process the image
-imagej -b $SAMBA/CF_Imaging.ijm "/home/pi/cf_image.jpg $SAMBA/$DA$
-imagej -b $SAMBA/CF_Imaging.ijm "/home/pi/cf_image.jpg $RCLONE/$D$
+imagej -b $SAMBA/CF_Imaging.ijm "/home/pi/cf_image.jpg $SAMBA/$DATE $TYPE"
+imagej -b $SAMBA/CF_Imaging.ijm "/home/pi/cf_image.jpg $RCLONE/$DATE $TYPE"
 
 # move the processed (and unprocessed) image(s) to the synced fol$
 cp /home/pi/cf_image.jpg $RCLONE/$DATE.jpg
