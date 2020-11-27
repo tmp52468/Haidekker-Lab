@@ -84,7 +84,8 @@ curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/CF_Imagi
 Step 10:
 Set up automated image capture and processing
 Enter the following command:
-curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/auto_cf_imaging.sh > home/pi/sambaShare/auto_cf_imaging.sh
+curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/auto_cf_imaging.sh > /home/pi/sambaShare/auto_cf_imaging.sh
+curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/.env_setup_rc > /home/pi/.env_setup_rc
 
 Modify the shell script to fit your cloud layout:
 nano home/pi/sambaShare/auto_cf_imaging.sh
@@ -93,7 +94,7 @@ Modify the crontab file to enable automatic file execution:
 crontab -e
 
 Add scheduled task to the bottom of crontab:
-0 0 * * * /home/pi/sambaShare/auto_cf_imaging.sh
+0 0 * * * . /home/pi/.env_setup_rc; /home/pi/sambaShare/auto_cf_imaging.sh
 
 For on reboot:
 @reboot command_to_mount_Samba_Share
