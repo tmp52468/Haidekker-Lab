@@ -2,34 +2,42 @@ Materials Needed:
 Raspberry Pi 4
 RPi Power Supply
 Micro-HDMI to HDMI Cable
-Ethernet Cable (optional)
+Ethernet Cable or WAP
 Monitor/Keyboard/Mouse
 (2) 2-Wire Connectors
 Third-party ArduCam Monochrome IR-sensitive Camera
+Server PC (For CIFS)
 
 Step 1:
 Perform the initial Raspberry Pi Setup (including internet connection)
 The following link has a guide:
 https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up
 After initial boot, ensure the software is up-to-date:
+-Connect to WAP or ethernet
 -Open the terminal
--Enter the following commands (requires internet connection)
-sudo apt update (May need to be run multiple times to ensure completion)
+-Enter the following commands (requires internet connection; may need to be run multiple times to ensure completion)
+sudo apt update
 sudo apt full-upgrade
-sudo apt-get install python-pip
 
 Step 2:
-Configure the Raspberry Pi for camera use
+Configure the Raspberry Pi for camera use (and SSH if desired)
 -Open the desktop menu in the top left
 -Go to Preferences > Raspberry Pi configuration
 -Open the Interfaces tab
--Enable the Camera option and click OK
--Reboot the Raspberry Pi if prompted (Or shutdown and connect the camera if you haven't already)
+-Enable the Camera option and click OK (check the SSH option as well if desired)
+-Reboot the Raspberry Pi if prompted (or shutdown and connect the camera if you haven't already)
+-For instructions on how to SSH: https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md
+-Enter the following commands to find the RPi's IP address:
+hostname -I
+
+-To enter into the RPi from a Linux or Mac machine, enter the following command into a terminal:
+ssh pi@ip.address
 
 Step 3:
 For ArduCam third-party cameras: https://www.arducam.com/docs/cameras-for-raspberry-pi/mipi-camera-modules/camera-userland-driver-sdk-and-examples/
 -Open the terminal
 -Enter the following commands (requires internet connection)
+sudo apt-get install python-pip
 sudo apt-get update && sudo apt-get install libzbar-dev libopencv-dev
 sudo apt-get install python-opencv
 sudo pip install 4vl2
@@ -51,9 +59,12 @@ Import or create python code to run camera tests
 For third-party ArduCam cameras:
 curl -l https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/cf_capture.py > /home/pi/MIPI_Camera/RPI/python/cf_capture.py
 
+-Modify the capture script values to fit the setup:
+sudo nano /home/pi/MIPI_Camera/RPI/python/cf_capture.py
+
 Step 5:
 Raspberry Pi 3/4 pin schematic: https://pinout.xyz/pinout/pwm
-Connect pin 33 and ground to the excitation led relay
+-Connect pin 33 and ground to the excitation led relay
 
 Step 6:
 Run camera tests
@@ -65,36 +76,49 @@ Step 7:
 Connect to OneDrive cloud service
 The following link has a guide:
 https://jarrodstech.net/how-to-raspberry-pi-onedrive-sync/
-Once connected, enter the following commands:
-cd
-mkdir rclone
+-Once connected, enter the following commands:
+sudo mkdir /home/rclone
 
 Step 8:
 Set Up Samba/CIFS system for network
-Enter the following commands:
-cd
-mkdir sambaShare
+-Enter the following commands:
+sudo mkdir /home/smbshare
+
+-Edit fstab file to enable CIFS mounting on reboot:
+sudo nano /etc/fstab
+
+-Add the following to the end of the fstab file:
+//<network.ip.address>/<sambaShareName> /home/smbshare cifs vers=1.0,user=<sambaShareUsername>,password=<sambaSharePassword>,x-systemd.automount 0 0
+
+-Change settings to allow for automounting:
+sudo raspi-config
+
+-Go to Boot Options > Wait for Network at Boot > Enable
+
+-Test CIFS mounting:
+sudo mount -a
+cd /home/smbshare
+df
+
+-If mounted properly, network ip address should be shown at bottom. Otherwise, check previous steps. Reboot when mount works
 
 Step 9:
-Install ImageJ2/Fiji
-Enter the following commands:
+Install ImageJ
+-Enter the following commands:
 sudo apt install imagej
-curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/CF_Imaging.ijm > /home/pi/sambaShare/CF_Imaging.ijm
+curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/CF_Imaging.ijm > /home/pi/CF_Imaging.ijm
 
 Step 10:
 Set up automated image capture and processing
-Enter the following command:
-curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/auto_cf_imaging.sh > /home/pi/sambaShare/auto_cf_imaging.sh
+-Enter the following commands:
+curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/auto_cf_imaging.sh > /home/pi/auto_cf_imaging.sh
 curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/.env_setup_rc > /home/pi/.env_setup_rc
 
-Modify the shell script to fit your cloud layout:
-nano home/pi/sambaShare/auto_cf_imaging.sh
+-Modify the shell script to fit your cloud layout:
+sudo nano /home/pi/auto_cf_imaging.sh
 
-Modify the crontab file to enable automatic file execution:
+-Modify the crontab file to enable automatic file execution:
 crontab -e
 
-Add scheduled task to the bottom of crontab:
-0 0 * * * . /home/pi/.env_setup_rc; /home/pi/sambaShare/auto_cf_imaging.sh
-
-For on reboot:
-@reboot command_to_mount_Samba_Share
+-Add scheduled task to the bottom of crontab:
+0 0 * * * . /home/pi/.env_setup_rc; /home/pi/auto_cf_imaging.sh
