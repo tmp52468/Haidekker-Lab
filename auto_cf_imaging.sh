@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # variables
-RCLONE="/home/pi/rclone" # Rclone directory for cloud sync
-ONEDRIVE="onedrive:CF_Imaging_RPi" # OneDrive directory
-SAMBA="/home/pi/sambaShare" # SambaShare directory
-TYPE="multiple" # Type of analysis (single or multiple)
+RCLONE="/home/rclone" # Rclone directory for cloud sync
+ONEDRIVE="onedrive:CF_Imaging_RPi" # OneDrive directory on cloud drive
+SAMBA="/home/smbshare" # SambaShare/CIFS directory
+TYPE="single" # Type of analysis (single or multiple)
 
 # set current date
 DATE=$(date +%F@%H:%M:%S)
