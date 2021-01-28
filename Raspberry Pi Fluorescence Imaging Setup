@@ -40,7 +40,7 @@ For ArduCam third-party cameras: https://www.arducam.com/docs/cameras-for-raspbe
 sudo apt-get install python-pip
 sudo apt-get update && sudo apt-get install libzbar-dev libopencv-dev
 sudo apt-get install python-opencv
-sudo pip install 4vl2
+sudo pip install v4l2
 git clone https://github.com/ArduCAM/MIPI_Camera.git
 cd MIPI_Camera/RPI/
 make install
