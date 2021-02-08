@@ -121,4 +121,4 @@ sudo nano /home/pi/auto_cf_imaging.sh
 crontab -e
 
 -Add scheduled task to the bottom of crontab:
-0 0 * * * . /home/pi/.env_setup_rc; /home/pi/auto_cf_imaging.sh
+0 0 * * * . /home/pi/.env_setup_rc; /home/pi/auto_cf_imaging.sh >> /home/pi/my.log 2>&1
