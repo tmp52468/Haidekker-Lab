@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # variables
-RCLONE="/home/rclone" # Rclone directory for cloud sync
-ONEDRIVE="onedrive:<path/to/directory>" # OneDrive directory on cloud drive
-SAMBA="/home/smbshare/<subdirectory>" # SambaShare/CIFS directory
-TYPE="single" # Type of analysis (single or multiple)
+RCLONE="/home/pi/rclone" # Local Rclone directory for cloud sync
+ONEDRIVE="<onedrive_name>:<path/to/onedrive/directory>" # OneDrive directory on cloud drive
+SAMBA="/home/pi/smbshare/<subdirectory>" # SambaShare/CIFS directory
+TYPE="single" # Type of analysis ('single' or 'multiple')
 
-# set current date
+# set specific system name and current date
 NAME=<nameofsystem>
-DATE=$(date +%F@%H:%M:%S)
+DATE=$(date +%F@%H:%M)
 
 # load in the files from the cloud server
 rclone sync -v $ONEDRIVE $RCLONE/
