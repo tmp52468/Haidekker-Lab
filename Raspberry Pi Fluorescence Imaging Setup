@@ -77,18 +77,18 @@ Connect to OneDrive cloud service
 The following link has a guide:
 https://jarrodstech.net/how-to-raspberry-pi-onedrive-sync/
 -Once connected, enter the following commands:
-sudo mkdir /home/rclone
+sudo mkdir /home/pi/rclone
 
 Step 8:
 Set Up Samba/CIFS system for network
 -Enter the following commands:
-sudo mkdir /home/smbshare
+sudo mkdir /home/pi/smbshare
 
 -Edit fstab file to enable CIFS mounting on reboot:
 sudo nano /etc/fstab
 
 -Add the following to the end of the fstab file:
-//<network.ip.address>/<sambaShareName> /home/smbshare cifs vers=1.0,user=<sambaShareUsername>,password=<sambaSharePassword>,x-systemd.automount 0 0
+//<network.ip.address>/<sambaShareName> /home/pi/smbshare cifs vers=1.0,user=<sambaShareUsername>,password=<sambaSharePassword>,x-systemd.automount 0 0
 
 -Change settings to allow for automounting:
 sudo raspi-config
