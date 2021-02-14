@@ -24,7 +24,7 @@ Configure the Raspberry Pi for camera use (and SSH if desired)
 -Open the desktop menu in the top left
 -Go to Preferences > Raspberry Pi configuration
 -Open the Interfaces tab
--Enable the Camera option and click OK (check the SSH option as well if desired)
+-Enable the Camera and I2C options and click OK (check the SSH option as well if desired)
 -Reboot the Raspberry Pi if prompted (or shutdown and connect the camera if you haven't already)
 -For instructions on how to SSH: https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md
 -Enter the following commands to find the RPi's IP address:
@@ -97,7 +97,7 @@ sudo raspi-config
 
 -Test CIFS mounting:
 sudo mount -a
-cd /home/smbshare
+cd /home/pi/smbshare
 df
 
 -If mounted properly, network ip address should be shown at bottom. Otherwise, check previous steps. Reboot when mount works
@@ -111,14 +111,23 @@ curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/CF_Imagi
 Step 10:
 Set up automated image capture and processing
 -Enter the following commands:
+mkdir /home/pi/CF_Images
 curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/auto_cf_imaging.sh > /home/pi/auto_cf_imaging.sh
+curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/backup_cf_imaging.sh > /home/pi/backup_cf_imaging.sh
 curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/.env_setup_rc > /home/pi/.env_setup_rc
 
 -Modify the shell script to fit your cloud layout:
 sudo nano /home/pi/auto_cf_imaging.sh
+sudo nano /home/pi/backup_cf_imaging.sh
+
+-Check user environment PATH variable:
+echo PATH
 
 -Modify the crontab file to enable automatic file execution:
 crontab -e
 
--Add scheduled task to the bottom of crontab:
+-Add PATH variable and following scheduled tasks to the bottom of crontab:
+PATH=<user's/path/variable>
+
 0 0 * * * . /home/pi/.env_setup_rc; /home/pi/auto_cf_imaging.sh >> /home/pi/my.log 2>&1
+5-55/5 0 * * * if [ -e /home/pi/CF_Images/cf_image.jpg ]; then . /home/pi/.env_setup_rc; /home/pi/backup_cf_imaging.sh >> /home/pi/my.log 2>&1; fi
