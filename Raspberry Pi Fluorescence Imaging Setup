@@ -115,6 +115,8 @@ mkdir /home/pi/CF_Images
 curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/auto_cf_imaging.sh > /home/pi/auto_cf_imaging.sh
 curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/backup_cf_imaging.sh > /home/pi/backup_cf_imaging.sh
 curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/.env_setup_rc > /home/pi/.env_setup_rc
+chmod +x /home/pi/auto_cf_imaging.sh
+chmod +x /home/pi/backup_cf_imaging.sh
 
 -Modify the shell script to fit your cloud layout:
 sudo nano /home/pi/auto_cf_imaging.sh
