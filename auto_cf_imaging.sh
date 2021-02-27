@@ -8,7 +8,7 @@ TYPE="single" # Type of analysis ('single' or 'multiple')
 
 # set specific system name and current date
 NAME=<nameofsystem>
-DATE=$(date +%F@%H)
+DATE=$(date +%F)
 
 # load in the files from the cloud server
 rclone sync -v $ONEDRIVE $RCLONE/
@@ -23,6 +23,7 @@ sleep 1s
 mv /home/pi/cf_image.jpg /home/pi/CF_Images/cf_image.jpg
 
 # process the image
+export DISPLAY=:1
 imagej -x 1000 -i /home/pi/CF_Images/cf_image.jpg -b /home/pi/CF_Imaging.ijm "/home/pi/CF_Images/$NAME_$DATE $TYPE"
 
 sleep 5s
