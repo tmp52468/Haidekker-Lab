@@ -88,7 +88,7 @@ sudo mkdir /home/pi/smbshare
 sudo nano /etc/fstab
 
 -Add the following to the end of the fstab file:
-//<network.ip.address>/<sambaShareName> /home/pi/smbshare cifs vers=1.0,user=<sambaShareUsername>,password=<sambaSharePassword>,x-systemd.automount 0 0
+//<network.ip.address>/<sambaShareName> /home/pi/smbshare cifs user=<sambaShareUsername>,password=<sambaSharePassword> 0 0
 
 -Change settings to allow for automounting:
 sudo raspi-config
@@ -106,8 +106,14 @@ Step 9:
 Install ImageJ
 -Enter the following commands:
 sudo apt install xvfb
+curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/start_xvfb.sh > /home/pi/start_xvfb.sh
+chmod +x /home/pi/start_xvfb.sh
+
 sudo apt install imagej
 curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/CF_Imaging.ijm > /home/pi/CF_Imaging.ijm
+
+-Add the following line to /etc/rc.local file:
+/home/pi/start_xvfb.sh
 
 Step 10:
 Set up automated image capture and processing
@@ -130,3 +136,7 @@ PATH=<user's/path/variable>
 
 0 0 * * * /home/pi/auto_cf_imaging.sh >> /home/pi/my.log 2>&1
 0-50/10 1 * * * if [ -e /home/pi/CF_Images/cf_image.jpg ]; then /home/pi/auto_cf_imaging.sh >> /home/pi/my.log 2>&1; fi
+
+Step 11:
+-Set the date and time with the following command:
+sudo date -s 'YYYY-MM-DD HH:MM:SS'
