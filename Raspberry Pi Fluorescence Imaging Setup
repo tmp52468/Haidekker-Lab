@@ -105,6 +105,7 @@ df
 Step 9:
 Install ImageJ
 -Enter the following commands:
+sudo apt install xvfb
 sudo apt install imagej
 curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/CF_Imaging.ijm > /home/pi/CF_Imaging.ijm
 
@@ -113,14 +114,10 @@ Set up automated image capture and processing
 -Enter the following commands:
 mkdir /home/pi/CF_Images
 curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/auto_cf_imaging.sh > /home/pi/auto_cf_imaging.sh
-curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/backup_cf_imaging.sh > /home/pi/backup_cf_imaging.sh
-curl -L https://raw.githubusercontent.com/tmp52468/Haidekker-Lab/master/.env_setup_rc > /home/pi/.env_setup_rc
 chmod +x /home/pi/auto_cf_imaging.sh
-chmod +x /home/pi/backup_cf_imaging.sh
 
 -Modify the shell script to fit your cloud layout:
 sudo nano /home/pi/auto_cf_imaging.sh
-sudo nano /home/pi/backup_cf_imaging.sh
 
 -Check user environment PATH variable:
 echo PATH
@@ -131,5 +128,5 @@ crontab -e
 -Add PATH variable and following scheduled tasks to the bottom of crontab:
 PATH=<user's/path/variable>
 
-0 0 * * * . /home/pi/.env_setup_rc; /home/pi/auto_cf_imaging.sh >> /home/pi/my.log 2>&1
-5-55/5 0 * * * if [ -e /home/pi/CF_Images/cf_image.jpg ]; then . /home/pi/.env_setup_rc; /home/pi/backup_cf_imaging.sh >> /home/pi/my.log 2>&1; fi
+0 0 * * * /home/pi/auto_cf_imaging.sh >> /home/pi/my.log 2>&1
+0-50/10 1 * * * if [ -e /home/pi/CF_Images/cf_image.jpg ]; then /home/pi/auto_cf_imaging.sh >> /home/pi/my.log 2>&1; fi
