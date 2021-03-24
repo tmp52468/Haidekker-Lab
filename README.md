@@ -1,2 +1,2 @@
 # Haidekker-Lab
-Repository for all my research done for Dr. Mark Haidekker at UGA College of Engineering
+Repository for all my research done for Dr. Mark Haidekker at UGA College of Engineering under the LAMP Project
