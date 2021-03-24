@@ -1,30 +1,32 @@
 args = split(getArgument()," ");
 print("Starting processing...");
-open(args[0]);
+//open(args[0]);
 run("16-bit");
 run("Despeckle");
+//run("Threshold...");
 setAutoThreshold("Intermodes dark");
 call("ij.plugin.frame.ThresholdAdjuster.setMode", "B&W");
 setOption("BlackBackground", true);
 run("Convert to Mask");
+print("Image threshold done...");
 run("Despeckle");
 
 print("Saving processed image...");
-saveAs("Jpeg", args[1] + ".processed.jpg");
+saveAs("Jpeg", args[0] + ".processed.jpg");
 
-if (args[2] == "multiple") {
+if (args[1] == "multiple") {
   print("Multiple plants...");
   //run("Invert");
   run("Analyze Particles...", "size=200-Infinity circularity=0.00-1.00 show=Outlines display clear");
-  saveAs("Jpeg", args[1] + ".multiple.jpg");
+  saveAs("Jpeg", args[0] + ".multiple.jpg");
   close();
-  saveAs("Results", args[1] + ".csv");
+  saveAs("Results", args[0] + ".csv");
 }
-if (args[2] == "single") {
+if (args[1] == "single") {
   print("Single plant...");
   run("Create Selection");
   run("Measure");
-  saveAs("Results", args[1] + ".csv");
+  saveAs("Results", args[0] + ".csv");
 }
 
 if (isOpen("Results")) {
@@ -36,5 +38,6 @@ if (isOpen("Log")) {
   run("Close" );
 }
 
-close();
+close("*");
 print("DONE");
+exit();

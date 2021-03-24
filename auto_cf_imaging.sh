@@ -8,21 +8,32 @@ TYPE="single" # Type of analysis ('single' or 'multiple')
 
 # set specific system name and current date
 NAME=<nameofsystem>
-DATE=$(date +%F@%H:%M)
+DATE=$(date +%F)
 
 # load in the files from the cloud server
 rclone sync -v $ONEDRIVE $RCLONE/
 
+sleep 1s
+
 # run the imaging script
 python /home/pi/MIPI_Camera/RPI/python/cf_capture.py
 
+sleep 1s
+
+mv /home/pi/cf_image.jpg /home/pi/CF_Images/cf_image.jpg
+
 # process the image
-imagej -b /home/pi/CF_Imaging.ijm "/home/pi/cf_image.jpg $SAMBA/$NAME_$DATE $TYPE"
-imagej -b /home/pi/CF_Imaging.ijm "/home/pi/cf_image.jpg $RCLONE/$NAME_$DATE $TYPE"
+export DISPLAY=:1
+imagej -x 1000 -i /home/pi/CF_Images/cf_image.jpg -b /home/pi/CF_Imaging.ijm "/home/pi/CF_Images/$NAME_$DATE $TYPE"
+
+sleep 5s
 
 # move the processed (and unprocessed) image(s) to the synced fol$
-cp /home/pi/cf_image.jpg $SAMBA/$NAME_$DATE.jpg
-mv /home/pi/cf_image.jpg $RCLONE/$NAME_$DATE.jpg
+mv /home/pi/CF_Images/cf_image.jpg /home/pi/CF_Images/$NAME_$DATE.jpg
+cp /home/pi/CF_Images/* $SAMBA/
+mv /home/pi/CF_Images/* $RCLONE/
+
+sleep 1s
 
 # upload the files back to the cloud server
 rclone sync -v $RCLONE/ $ONEDRIVE
