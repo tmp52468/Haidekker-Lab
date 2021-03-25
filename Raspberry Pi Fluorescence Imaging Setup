@@ -1,12 +1,47 @@
-Materials Needed:
-Raspberry Pi 4
-RPi Power Supply
+Extra Materials Needed:
 Micro-HDMI to HDMI Cable
 Ethernet Cable or WAP
 Monitor/Keyboard/Mouse
-(2) 2-Wire Connectors
-Third-party ArduCam Monochrome IR-sensitive Camera (https://www.uctronics.com/arducam-ov9281-mipi-camera-module-1mp-monochrome-global-shutter-camera-2087.html)
 Server PC (For CIFS)
+
+
+--- Hardware Setup ---
+
+Step 1: 
+Obtain all the parts from this list including the 3d-printed parts: https://github.com/tmp52468/Haidekker-Lab/blob/master/Parts%20List%20and%20Sourcing
+
+Step 2:
+Set up the Raspberry Pi according to the Software Setup guide below
+
+Step 3:
+Detach the ribbon cable from the camera and attach it to the Raspberry Pi
+
+Step 4: 
+Mount the Raspberry Pi onto the 3d-printed base mount using (4) M2.5 x 16 screws, washers, and hex nuts
+
+Step 5:
+Thread the electric wires through the hole beside the Raspberry Pi, and connect the power supply cable
+
+Step 6: 
+Align the 3d-printed RPi cover with the base mount, push the camera ribbon cable through the cover's slit, and mount the RPi cover with (2) M4 x 10mm machine screws and hex nuts
+
+Step 7:
+Connect the end of the camera ribbon cable that exits the slit with the camera once again, mounting the camera to the RPi cover with (2) twist ties or zip ties
+
+Step 8:
+Ensure that the camera lens is not covered and place the 3d-printed camera cover on top
+
+Step 9:
+Carefully place the filter into the 3d-printed filter holder and line it up with the top of the camera cover
+
+Step 10:
+Ensure that the filter is lined up with the camera lens and that all parts fit snugly
+
+Step 11:
+Complete assembly by screwing the filter holder and camera cover onto the RPi cover using (4) M4 x 20mm machine screws and hex nuts
+
+
+--- Software Setup ---
 
 Step 1:
 Perform the initial Raspberry Pi Setup (including internet connection)
