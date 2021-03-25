@@ -1,0 +1,32 @@
+Here is a comprehensive list of all the parts that were tested and used in the final canopy imaging device. If any parts have a specific link for purchase, they will be included.
+Some parts cannot be bought from a regular vendor and will not have a purchase page link.
+
+Complete Final Parts List:
+(1) Raspberry Pi 4 B+ 2GB - https://www.adafruit.com/product/4292?gclid=CjwKCAjwxuuCBhATEiwAIIIz0XqWqr9-4wQWj3OfldjqRDI1wF4zedeSYOhBMsJccH-850IYKzCi8BoCujsQAvD_BwE
+(1) 32GB MicroSD Card - https://www.amazon.com/gp/product/B08C2G1J9M?pf_rd_r=S76BJYJ9NW19GG5XN8AR&pf_rd_p=5ae2c7f8-e0c6-4f35-9071-dc3240e894a8&pd_rd_r=26fe4415-02d6-4dd2-a331-733aa5bb8610&pd_rd_w=N9iSh&pd_rd_wg=XERcd&ref_=pd_gw_unk
+(1) RPi Power Supply - https://www.adafruit.com/product/4298
+(1) ArduCam UC-599 Rev.B - https://www.uctronics.com/arducam-ov9281-mipi-camera-module-1mp-monochrome-global-shutter-camera-2087.html
+(1) Edmund Optics Optical Cast Plastic Filter - https://www.edmundoptics.com/p/1quot-x-1quot-optical-cast-plastic-ir-longpass-filter/5421?gclid=Cj0KCQiAw_H-BRD-ARIsALQE_2MpSiFqxBkl_SwPyleVPirnVuEbW-K5afUumapf7d4qHacXlytITq8aAoOXEALw_wcB
+(1) 3d-Printed Parts - https://github.com/tmp52468/Haidekker-Lab/tree/master/CF_Imaging_Mount_STLs
+(1) 2-pin Electric Wire
+(4) M2.5-0.45 x 16mm Machine Screws
+(4) M2.5 Flat Washers
+(4) M2.5-0.45 Hex Nuts
+(2) M4 x 10mm Machine Screws *
+(4) M4 x 20mm Machine Screws *
+(6) M4 Hex Nuts
+
+
+Tested Cameras List:
+ArduCam UC-580 Rev.B - https://www.uctronics.com/arducam-ov9281-mipi-camera-module-1mp-monochrome-global-shutter-camera.html
+ArduCam UC-545 Rev.C - https://www.uctronics.com/arducam-ov7251-mipi-0-31mp-monochrome-global-shutter-camera-module-noir-for-raspberry-pi-4-3b-3.html
+Pi NoIR Camera V2 - https://www.adafruit.com/product/3100?gclid=CjwKCAjwxuuCBhATEiwAIIIz0aPJwTNK9IIpOtyjGOFUdG_SgwAt9vGDGfbOKawu2QAoyM26qk94BxoCkXQQAvD_BwE
+ArduCam UC-599 - https://www.uctronics.com/arducam-ov9281-mipi-camera-module-1mp-global-shutter-mono-camera-130.html
+ArduCam UC-599 Rev.B - https://www.uctronics.com/arducam-ov9281-mipi-camera-module-1mp-monochrome-global-shutter-camera-2087.html
+
+
+Tested Filters List:
+Edmund Optics Optical Cast Plastic Filter - https://www.edmundoptics.com/p/1quot-x-1quot-optical-cast-plastic-ir-longpass-filter/5421?gclid=Cj0KCQiAw_H-BRD-ARIsALQE_2MpSiFqxBkl_SwPyleVPirnVuEbW-K5afUumapf7d4qHacXlytITq8aAoOXEALw_wcB
+Edmund Optics Glass Replacement Filter - https://www.edmundoptics.com/p/665nm-254mm-dia-colored-glass-replacement-longpass-filter/43194/
+Wratten 70 Gelatin Filter - E-bay
+Wratten 89B Gelatin Filter - E-bay
