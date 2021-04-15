@@ -1,12 +1,12 @@
-File name,Minimum threshold,Pixel Number,Area
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Manual Images/Low-Light\03092021.bmp,74,358,358
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Manual Images/Low-Light\03102021.bmp,50,0,0
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Manual Images/Low-Light\03112021.bmp,84,63,63
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Manual Images/Low-Light\03152021.bmp,58,2548,2548
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Manual Images/Low-Light\03222021.bmp,85,21743,21743
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Manual Images/Low-Light\03292021.bmp,73,87207,87207
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Manual Images/Low-Light\03312021.bmp,64,123742,123742
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Manual Images/Low-Light\04052021.bmp,61,154508,154508
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Manual Images/Low-Light\04072021.bmp,63,229900,229900
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Manual Images/Low-Light\04082021.bmp,59,293543,293543
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Manual Images/Low-Light\04092021.bmp,58,357697,357697
+Day,Minimum threshold,Area,% Growth,,,
+0,74,358,0.289311632,,,
+1,50,0,0,,,
+2,84,63,0.050912382,,,
+6,58,2548,2.059123014,,,
+13,85,21743,17.57123693,,,
+20,73,87207,70.47485898,,,
+22,64,123742,100,,,
+,,,,27,61,154508
+,,,,29,63,229900
+,,,,30,59,293543
+,,,,31,58,357697

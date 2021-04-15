@@ -1,31 +1,31 @@
-File name,Minimum threshold,Pixel Number,Area
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-09@00.jpg,11,0,0
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-11@21.jpg,16,1859,1859
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-12@23.jpg,16,6374,6374
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-13@22.jpg,16,10737,10737
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-14@22.jpg,16,15441,15441
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-15@22.jpg,16,8846,8846
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-16@22.jpg,16,15493,15493
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-17@22.jpg,16,25268,25268
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-18@23.jpg,16,38290,38290
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-19@22.jpg,16,53573,53573
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-20@23.jpg,16,69769,69769
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-21@23.jpg,16,94511,94511
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-22@21.jpg,16,101339,101339
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-23@23.jpg,16,140647,140647
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-24@23.jpg,16,218666,218666
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-25@22.jpg,16,288364,288364
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-26@22.jpg,16,344252,344252
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-27@22.jpg,16,359854,359854
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-28@21.jpg,16,323852,323852
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-29@21.jpg,16,385287,385287
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-30@21.jpg,16,508690,508690
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-03-31@21.jpg,16,558387,558387
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-04-01@21.jpg,16,499043,499043
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-04-02@21.jpg,16,451420,451420
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-04-03@21.jpg,16,422620,422620
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-04-04@21.jpg,16,401632,401632
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-04-05@21.jpg,16,413649,413649
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-04-06@21.jpg,16,542883,542883
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-04-07@21.jpg,16,634814,634814
-C:/Users/Tony/Documents/GitHub/Haidekker-Lab/Experiment Images/Default/Automatic Images/High-Light/van Iersel Processing\2021-04-08@21.jpg,16,656947,656947
+Day,Minimum threshold,Area,% Growth,,,
+0,11,0,0,,,
+2,16,1859,0.332923223,,,
+3,16,6374,1.14150222,,,
+4,16,10737,1.922859952,,,
+5,16,15441,2.765286441,,,
+6,16,8846,1.584205936,,,
+7,16,15493,2.774598979,,,
+8,16,25268,4.525176983,,,
+9,16,38290,6.857251333,,,
+10,16,53573,9.594241986,,,
+11,16,69769,12.49473931,,,
+12,16,94511,16.92571639,,,
+13,16,101339,18.14852423,,,
+14,16,140647,25.1880864,,,
+15,16,218666,39.16029564,,,
+16,16,288364,51.64231975,,,
+17,16,344252,61.65114876,,,
+18,16,359854,64.44526825,,,
+19,16,323852,57.99776857,,,
+20,16,385287,68.99999463,,,
+21,16,508690,91.09990025,,,
+22,16,558387,100,,,
+,,,,23,16,499043
+,,,,24,16,451420
+,,,,25,16,422620
+,,,,26,16,401632
+,,,,27,16,413649
+,,,,28,16,542883
+,,,,29,16,634814
+,,,,30,16,656947
